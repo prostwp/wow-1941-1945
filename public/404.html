@@ -4,18 +4,14 @@
     <meta charset="UTF-8" />
     <title>1941–1945</title>
     <script>
-      // SPA-fallback for GitHub Pages: redirect any deep link to / with hash
-      // so React Router can pick it up.
+      // SPA-fallback for GitHub Pages: deep links like /event/3 must boot
+      // from /index.html. Save the original path so React Router can pick it up.
       var path = window.location.pathname;
-      var base = '/wow-1941-1945/';
-      if (path.indexOf(base) === 0) {
-        var rest = path.slice(base.length);
-        var search = window.location.search;
-        sessionStorage.setItem('redirect', rest + search);
-        window.location.replace(base);
-      } else {
-        window.location.replace(base);
+      var search = window.location.search;
+      if (path !== '/') {
+        sessionStorage.setItem('redirect', path.slice(1) + search);
       }
+      window.location.replace('/');
     </script>
   </head>
   <body></body>

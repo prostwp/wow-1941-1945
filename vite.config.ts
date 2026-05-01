@@ -4,6 +4,6 @@ import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
   plugins: [react(), tailwindcss()],
-  base: '/wow-1941-1945/',
+  base: '/',
   server: { port: 5179, host: true },
 });
